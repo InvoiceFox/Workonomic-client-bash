@@ -6,16 +6,16 @@
 
 # first level retrieval
 
-$ wrk proj list
-$ wrk proj get 10
-$ wrk proj get <shortname>
+$ wrk project list
+$ wrk project get 10
+$ wrk project get <shortname>
 
 $ wrk work list
 $ wrk work get 100
 
 # second level retrieval (option 1 - structured)
 
-$ wrk proj get 10 work list
+$ wrk project get 10 work list
 $ wrk work get 100 notes list
 
 # second level retrieval (option 2 - flatter)
@@ -30,17 +30,17 @@ $ wrk notes list --work 100
 
 # creating records
 
-$ wrk proj create <shortname>
-$ wrk proj create <shortname> <name> <client-id>
+$ wrk project create <shortname>
+$ wrk project create <shortname> <name> <client-id>
 
 # updating records
 
-$ wrk proj update <id> <shortname>
-$ wrk proj create <id> <shortname> <name> <client-id>
+$ wrk project update <id> <shortname>
+$ wrk project create <id> <shortname> <name> <client-id>
 
 # output formats
 
-$ wrk -f=csv proj list  #output format
+$ wrk -f=csv project list  #output format
 
 # input props pipe
 
@@ -48,17 +48,17 @@ $ cat > props
 shortname: <...>
 name: <...>
 
-$ cat props | wrk -i=prop proj create -
+$ cat props | wrk -i=prop project create -
 
-$ cat props | wrk -i=prop proj update <id> -
+$ cat props | wrk -i=prop project update <id> -
 
 # data format symetry .. tsv for input and output ; example of changing and duplicating a project
 
-$ wrk -f=tsv proj get <shortname> | perl -pe 's|bla|blu|' | wrk -i=tsv proj create - 
+$ wrk -f=tsv project get <shortname> | perl -pe 's|bla|blu|' | wrk -i=tsv project create - 
 
 # working with other unix tools ; example of retrieving and summing hours
 
-$ wrk --justid proj get <shortname> | xargs wrk -f=tsv work of-proj | awk -F"\t" '{sum+=$3}END{print "sum is:", sum}'
+$ wrk --id project get <shortname> | xargs wrk -f=tsv work of-proj | awk -F"\t" '{sum+=$3}END{print "sum is:", sum}'
 
 
 # weird ideas: internal stack
@@ -73,17 +73,17 @@ $ wrk project get <shortname> :push
 $ wrk list work of-proj :pop
 
 $ wrk client find-one <part-of-name> :push
-$ wrk proj create <short> <name> :pop
+$ wrk project create <short> <name> :pop
 
 # in both these examples xargs or other shell methods could be used but it would be more complex,
 # you wouldn't see the output simply and push it and I see needs for multiple values
 
 $ wrk proj list
-$ wrk -id proj get <short1> :push
+$ wrk --id project get <short1> :push
 $ wrk :dup # duplicates top value on stack
-$ wrk -id work get-at-date :pop <date1> :push
+$ wrk --id work get-at-date :pop <date1> :push
 $ wrk :switch # switches the top values
-$ wrk -id work get-at-date :pop <date2> :push
+$ wrk --id work get-at-date :pop <date2> :push
 $ wrk charge create :pop :pop 50 :push # use
 $ wrk charge get-invoice :pop # id of charge
 $ wrk :unpop # we looked at the invoice PDF and decided to send it.. we need the id again
@@ -98,7 +98,7 @@ $ wrk charge send-invoice :pop jimbo@elephant.cc
 # resources
 # =========
 #
-# project - proj
+# project - project
 # work - work
 # client - client
 # charge - charge
