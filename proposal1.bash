@@ -22,6 +22,11 @@ $ wrk work get 100 notes list
 $ wrk work list of-proj 10
 $ wrk notes list of-work 100
 
+# second level retrieval (option 3 - flatter)
+
+$ wrk work list --proj 10
+$ wrk notes list --work 100
+
 # creating records
 
 $ wrk proj create <shortname>
