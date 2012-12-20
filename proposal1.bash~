@@ -1,6 +1,0 @@
-# first proposal
-
-wrk proj list
-wrk proj get 10
-
-wrk work list 10
