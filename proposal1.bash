@@ -8,6 +8,7 @@
 
 $ wrk proj list
 $ wrk proj get 10
+$ wrk proj get <shortname>
 
 $ wrk work list
 $ wrk work get 100
