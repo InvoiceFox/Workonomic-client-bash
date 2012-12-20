@@ -60,6 +60,40 @@ $ wrk -f=tsv proj get <shortname> | perl -pe 's|bla|blu|' | wrk -i=tsv proj crea
 $ wrk --justid proj get <shortname> | xargs wrk -f=tsv work of-proj | awk -F"\t" '{sum+=$3}END{print "sum is:", sum}'
 
 
+# weird ideas: internal stack
+# ===========================
+
+# wrk command has internal persistent stack (forth style??)
+# this creates sort of internal language capability that can be more natural 
+# workflow-vise and simpler to type/look than traditional bash utlis. Especially
+# in multistep occasions
+
+$ wrk project get <shortname> :push
+$ wrk list work of-proj :pop
+
+$ wrk client find-one <part-of-name> :push
+$ wrk proj create <short> <name> :pop
+
+# in both these examples xargs or other shell methods could be used but it would be more complex,
+# you wouldn't see the output simply and push it and I see needs for multiple values
+
+$ wrk proj list
+$ wrk -id proj get <short1> :push
+$ wrk :dup # duplicates top value on stack
+$ wrk -id work get-at-date :pop <date1> :push
+$ wrk :switch # switches the top values
+$ wrk -id work get-at-date :pop <date2> :push
+$ wrk charge create :pop :pop 50 :push # use
+$ wrk charge get-invoice :pop # id of charge
+$ wrk :unpop # we looked at the invoice PDF and decided to send it.. we need the id again
+$ wrk charge send-invoice :pop jimbo@elephant.cc
+
+## weird idea inside the stack lang .. unpop (sort of undo) so you don't have to dup in advance
+## works better in interactive use because you don't have to always calcualte your steps ahead !!!
+## hm.. this looks awesome to me right now !
+
+
+
 # resources
 # =========
 #
