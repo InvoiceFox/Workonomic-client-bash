@@ -22,6 +22,11 @@ $ wrk work get 100 notes list
 $ wrk proj create <shortname>
 $ wrk proj create <shortname> <name> <client-id>
 
+# updating records
+
+$ wrk proj update <id> <shortname>
+$ wrk proj create <id> <shortname> <name> <client-id>
+
 # output formats
 
 $ wrk --f=csv proj list  #output format
@@ -34,6 +39,8 @@ name: <...>
 
 $ cat props | wrk --if=prop proj create -
 
+$ cat props | wrk --if=prop proj update <id> -
+
 # data format symetry .. tsv for input and output ; example of changing and duplicating a project
 
 $ wrk -f=tsv proj get <shortname> | perl -pe 's|bla|blu|' | wrk -i=tsv proj create - 
@@ -42,8 +49,16 @@ $ wrk -f=tsv proj get <shortname> | perl -pe 's|bla|blu|' | wrk -i=tsv proj crea
 
 $ wrk -justid proj get <shortname> | xargs wrk -f=tsv work of-proj | awk -F"\t" '{sum+=$3}END{print "sum is:", sum}'
 
+
 # resources
+# =========
+#
 # project - proj
 # work - work
 # client - client
 # charge - charge
+
+# contact
+# =======
+#
+# contact me directly to janko.itm@gmail.com if you have any feedback, proposals or ideas !
