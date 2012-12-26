@@ -1,6 +1,6 @@
-# first proposal B
+# first proposal C
 # ================
-# the OO like [ obj.obj.method(args) ] order
+# the (function object args..) lisp like order
 #
 # state: collecting feedback, brainstorming
 #
@@ -15,45 +15,45 @@
 #
 # data retrieval
 
-$ wrk project list
-$ wrk project get 10
-$ wrk project get proj1
-$ wrk project get <id|shortname>
+$ wrk list project
+$ wrk get project 10
+$ wrk get project proj1
+$ wrk get project <id|shortname>
 
-$ wrk work list
-$ wrk work get 100
-$ wrk work get <id>
+$ wrk list work 
+$ wrk get work 100
+$ wrk get work <id>
 
-P> wrk.work.get(<id>)
+P> wrk.get('work', <id>)
 
 # creating records
 
-$ wrk project create <shortname>
-$ wrk project create <shortname> <name> <client-id>
+$ wrk create project <shortname>
+$ wrk create project <shortname> <name> <client-id>
 
-P> wrk.project.create(<shortname>, <name>) # method with first required and the rest optional params
+P> wrk.create('project', <shortname>, <name>) # method with first required and the rest optional params
 
 # updating records
 
-$ wrk project update <id> <shortname>
-$ wrk project update <id> <shortname> <name> <client-id>
+$ wrk update project <id> <shortname>
+$ wrk update project <id> <shortname> <name> <client-id>
 
 
 # deleting records
 
-$ wrk note delete <id>
-$ wrk client delete <id|shortname>
+$ wrk delete note <id>
+$ wrk delete client <id|shortname>
 
-P> wrk.project.delete(id|<shortname>) # method accepts to types of first arg and dispatches on that
+P> wrk.delete('project', <id|shortname>) # method accepts to types of first arg and dispatches on that
 
 
 ## which dissects to ##
 
 wrk - wrapper for all workonomic commands (like git)
 
-project|work|client|note - defines resource you are working with
-
 list|get|create|update|delete - method you are calling
+
+project|work|client|note - defines resource you are working with
 
 10|<id>|<shortname>|<..> - arguments of method
 
@@ -79,34 +79,38 @@ $ wrk notes list latest
 
 # retrieval (option 3)
 
-$ wrk work list --proj 10
-$ wrk work list --day 2012-12-26
-$ wrk notes list --work 100
-$ wrk notes list --latest
+$ wrk list work --proj 10
+$ wrk list work --day 2012-12-26
+$ wrk list notes --work 100
+$ wrk list notes --latest
 
 # retrieval (option 3)
 
-$ wrk work list --proj 10
-$ wrk work list --day 2012-12-26
-$ wrk notes list --work 100
-$ wrk notes list --latest
+$ wrk list work --proj 10
+$ wrk list work --day 2012-12-26
+$ wrk list notes --work 100
+$ wrk list notes --latest
 
 # retrieval (option 4 - no "refinements concept", just separate methods)
 
-$ wrk work list-by-proj 10
-$ wrk work list-by-day 2012-12-26
-$ wrk notes list-by-work 100
-$ wrk notes list-latest
+## makes less sense here, and I didn't rerriously consider it
+
+#$ wrk work list-by-proj 10
+#$ wrk work list-by-day 2012-12-26
+#$ wrk notes list-by-work 100
+#$ wrk notes list-latest
 
 # retrieval (option 5 - has refinement filter which (also) accepts (multiple) filters
 #   you can also look at it as optional named argument of the method "list")
 
-$ wrk work list --filter proj 10
-$ wrk work list --filter day 2012-12-26
-$ wrk notes list --filter work 100
-$ wrk notes list -- filter latest 10 #here number could be optional
+## little more unclear here as filger is next to resource not method
 
-$ wrk work list --filter proj 10 day 2012-12-01 
+$ wrk list work --filter proj 10
+$ wrk list work --filter day 2012-12-26
+$ wrk list notes --filter work 100
+$ wrk list notes -- filter latest 10 #here number could be optional
+
+$ wrk list list --filter proj 10 day 2012-12-01 
 # meaning: call list method on work resource with filter by project and date
 # meaning2: get me list of work for project 10 on date 2012-12-01
 # would need separator if anything can be defined after filter, mutt has --
@@ -130,13 +134,13 @@ of-proj|of-work|--proj|--work - modifyer / refinement on the method. In this cas
 
 # if I write few examples as python (P>) or rebol (R>) besides bash (B>)
 
-B$ wrk work list --day 2012-12-26
-P> wrk.work.list(day="2012-12-26")
-R> wrk/work/list/day 2012-12-26
+B$ wrk list work --day 2012-12-26
+P> wrk.list('work', day="2012-12-26")
+R> wrk/list/day 'work 2012-12-26                                           ;'
 
-B$ wrk work list --filter proj 10 day 2012-12-01
-P> wrk.work.list(filter={proj: 10, day: "2012-12-01"})
-R> wrk/work/list/filter [ proj 10 day 2012-12-01 ]
+B$ wrk list work --filter proj 10 day 2012-12-01
+P> wrk.list('work', filter={proj: 10, day: "2012-12-01"})
+R> wrk/list/filter 'work [ proj 10 day 2012-12-01 ]                        ;'
 
 
 # Thanks
