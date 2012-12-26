@@ -10,8 +10,8 @@
 #   * P> is command written as it would be seen in python
 
 
-# commands with 1 level
-# ---------------------
+# simple commands
+# ---------------
 #
 # data retrieval
 
@@ -59,8 +59,8 @@ project|work|client|note - defines resource you are working with
 
 
 
-# commands on 2. level
-# --------------------
+# 2. level commands
+# -----------------
 #
 # maybe we shouldn't look at it as 2. level, but basically "with refinements / filters"
 # in examples so far. Basically the method has refinements in Rebol sense.
