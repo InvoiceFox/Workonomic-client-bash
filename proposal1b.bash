@@ -11,8 +11,8 @@
 #
 #
 
-# commands with 1 level
-# ---------------------
+# simple commands
+# ---------------
 #
 # data retrieval
 
