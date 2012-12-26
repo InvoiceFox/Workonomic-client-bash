@@ -105,7 +105,7 @@ $ wrk notes list-latest
 $ wrk work list --filter proj 10
 $ wrk work list --filter day 2012-12-26
 $ wrk notes list --filter work 100
-$ wrk notes list -- filter latest 10 #here number could be optional
+$ wrk notes list --filter latest 10 #here number could be optional
 
 $ wrk work list --filter proj 10 day 2012-12-01 
 # meaning: call list method on work resource with filter by project and date
