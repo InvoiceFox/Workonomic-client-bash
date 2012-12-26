@@ -2,13 +2,14 @@
 # ================
 #
 #
-# state: collecting feedback, brainstorming
+# state: collecting feedback, brainstorming, focusing on the first part of proposal1
 #
 # conventions: 
 #   * <something> represents some argument, for example <id> would in practice mean
 #     you put numeric id there (like 10). <shortname> a string shortname (like proj1)
 #   * P> is command written as it would be seen in python
-
+#
+#
 
 # commands with 1 level
 # ---------------------
@@ -128,7 +129,7 @@ of-proj|of-work|--proj|--work - modifyer / refinement on the method. In this cas
 10|100|<project-id>|<work-id> - arguments (numeric) for the method
 
 
-# if I write few examples as python (P>) or rebol (R>) besides bash (B>)
+# if I write few examples as python (P>) or rebol (R>) besides bash (B$)
 
 B$ wrk work list --day 2012-12-26
 P> wrk.work.list(day="2012-12-26")
@@ -144,6 +145,11 @@ R> wrk/work/list/filter [ proj 10 day 2012-12-01 ]
 #
 # Simon B.
 #
+
+# Ideas
+# =====
+# * autodetect input format
+# * "using" command to preset certain values
 
 #
 # contact
