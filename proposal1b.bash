@@ -32,7 +32,7 @@ P> wrk.work.get(<id>)
 $ wrk project create <shortname>
 $ wrk project create <shortname> <name> <client-id>
 
-P> wrk.project.create(<shortname>, <name>) # method with first required and the rest optional params
+P> wrk.project.create(<shortname>, <name>) # method with first required and the rest optional args
 
 # updating records
 
