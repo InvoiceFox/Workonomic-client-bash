@@ -50,6 +50,11 @@ Since these are just simple bash scripts you don't have to really install anythi
 
 If you don't have Git installed you can download the zip from github, unzip, move to /opn/workonomic and install.
 
+Where do you get API token
+--------------------------
+
+Login to your Workonomic.cc account. Go to "Setting" and enable API access. When you do the API token is shown in bold. Copy it to .apitoken
+
 Warning
 -------
 
@@ -62,3 +67,5 @@ Plans
 - Make commands that don't use natural lang, but more strict command specific arguments and return data in selected data format. This will be better for scripting and automation.
 
 - Make the tools that make api-token encrypted with a password you choose. It get's decrypted with a password when you use it but is not accessible when not in use
+
+- We will enable multiple API tokens, with different access schemas. OAuth2 is in plans also.
