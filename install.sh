@@ -11,7 +11,7 @@ echo "---------------------"
 
 mkdir -p ~/.config/workonomic
 
-cho "Please Enter your Workonomic API token: "
+echo "Please Enter your Workonomic API token: "
 read APITOKEN
 
 echo "$APITOKEN" | cat > ~/.config/workonomic/.apitoken
