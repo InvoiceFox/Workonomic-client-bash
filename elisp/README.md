@@ -1,7 +1,7 @@
 Emacs plugin
 ============
 
-The best programmers editor meets workonomic.
+The best programmer's editor meets workonomic.
 
 State
 -----
