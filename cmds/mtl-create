@@ -1,0 +1,18 @@
+#!/bin/bash
+. mtl-funcs
+
+showUsage() {
+    cat <<EOF
+Usage: 
+create doc ~ creates a doc and index and src files
+EOF
+}
+
+if [ $# -eq 1 ]; then
+    DOC=$(getdoc $1)
+    touch .mtl/${DOC}
+    touch .mtl/${DOC}.index
+    echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" | cat >> .mtl/${DOC}.src
+else
+    showUsage
+fi

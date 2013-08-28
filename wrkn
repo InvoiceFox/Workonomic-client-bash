@@ -1,0 +1,15 @@
+#!/bin/bash
+showCommands() {
+    echo "TODO"
+    #cat `readlink -n -f `-commands.txt ... ##todo
+}
+
+CWD=$(dirname $(readlink -f $0))
+
+if [ $# -gt 0 ]; then
+    CMD=$1
+    shift
+    $CWD/cmds/wrkn-$CMD $@
+else
+    showCommands
+fi

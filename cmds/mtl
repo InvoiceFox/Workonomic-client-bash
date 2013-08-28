@@ -1,0 +1,12 @@
+#!/bin/bash
+showCommands() {
+    cat `readlink -n -f /usr/bin/mtl`-commands.txt
+}
+
+if [ $# -gt 0 ]; then
+    CMD=$1
+    shift
+    mtl-$CMD $@
+else
+    showCommands
+fi

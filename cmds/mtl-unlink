@@ -1,0 +1,21 @@
+#!/bin/bash
+. mtl-funcs
+
+showUsage() {
+    cat <<EOF
+Usage: 
+unlink doc
+unlink :yday
+EOF
+}
+
+if [ $# -eq 1 ]; then
+    DOC=$(getdoc $1)
+    if [ -h $DOC ]; then
+	rm $DOC
+    else
+	echo "err: this is not a link to MTL doc."
+    fi
+else
+    showUsage
+fi
