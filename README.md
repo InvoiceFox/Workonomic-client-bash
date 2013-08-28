@@ -22,6 +22,8 @@ Example:
     wrknm create project abc
 
     wrknm started working on abc 20 mins ago
+    
+    wrknm "note: i've fixed the bug 100"
 
 For more info look at chat examples on: http://workonomic.cc/help-main-en.html
 
@@ -46,11 +48,9 @@ them reachable from where you want them. One way to do this is:
 
     cd /opt/workonomic
 
-    cat > .apitoken
-    <<<your-workonomic-api-token>>>
-
     #this links the wrknm command to /usr/bin so it's globally accessible, 
-    #nothing special and you can make it accessible in some other way
+    #and creates your ~/.config/workonomic/.apitoken (prepare your API token)
+
     ./install 
 
 If you don't have Git installed you can download the zip from github, unzip and install the same way.
@@ -59,7 +59,7 @@ Where do you get API token
 --------------------------
 
 Login to your Workonomic.cc account. Go to "Settings" and enable API access. When you do, the API token is 
-shown in bold. Copy it to .apitoken file local to wrknm command.
+shown in bold.
 
 Warning
 -------
