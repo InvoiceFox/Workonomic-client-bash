@@ -29,6 +29,12 @@ If you want to set it manually do:
     <<your-api-token->>
     
 
+Dependencies
+------------
+
+You need to also have http-post-simple.el (http://www.emacswiki.org/emacs/http-post-simple.el) installed in Emacs.
+    
+
 How to use
 ----------
 
