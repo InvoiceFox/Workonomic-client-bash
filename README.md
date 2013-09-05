@@ -85,5 +85,3 @@ Screenshot
 ----------
 
 https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/1229872_407228559383606_1704297721_n.png
-
-https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn1/1148742_408917209214741_1970027525_n.png
