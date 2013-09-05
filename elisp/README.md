@@ -48,4 +48,8 @@ When you restart Emacs, you can do M-x wrknm and then issue any of nat-lang comm
 - stopped at 4pm
 - ...
 
+Screenshot
+----------
+
+https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn1/1148742_408917209214741_1970027525_n.png
 
