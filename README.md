@@ -79,3 +79,11 @@ in selected data format. This will be better for scripting and automation.
 when you use it but is not accessible when not in use
 
 - We will enable multiple API tokens, with different access schemas. OAuth2 is in plans also.
+
+
+Screenshot
+----------
+
+https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/1229872_407228559383606_1704297721_n.png
+
+https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn1/1148742_408917209214741_1970027525_n.png
