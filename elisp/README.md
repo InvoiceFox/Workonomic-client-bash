@@ -12,7 +12,7 @@ First version. Just the nat-lang wrknm (WoRKNomic Message) command (same as in b
 How to install
 --------------
 
-As any other elisp script. This is one example.
+As any other elisp script. This is one example:
 
     mkdir ~/.elisp
     
@@ -32,7 +32,7 @@ If you want to set it manually do:
 How to use
 ----------
 
-When you restart Emacs, you can do M-x wrknm and then issue any of nat.lang. commands, like:
+When you restart Emacs, you can do M-x wrknm and then issue any of nat-lang commands, like:
 - show my projects
 - create new project abc
 - i started working on abc 20 mins ago
