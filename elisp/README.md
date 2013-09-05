@@ -6,7 +6,7 @@ The best programmer's editor meets workonomic.
 State
 -----
 
-First version. Just the nat-lang wrknm (worknomic message) command (same as in bash). More will come.
+First version. Just the nat-lang wrknm (WoRKNomic Message) command (same as in bash). More will come.
 
 
 How to install
@@ -43,6 +43,3 @@ When you restart Emacs, you can do M-x wrknm and then issue any of nat.lang. com
 - ...
 
 
-
-
-    
