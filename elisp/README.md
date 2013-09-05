@@ -21,6 +21,13 @@ As any other elisp script. This is one example.
     cat >> ~/.emacs
     (add-to-list 'load-path "~/.elisp")
     (require 'workonomic)
+    
+You already setup your API token if you ran ./install in parent folder. Bash and Emacs clients use the same setup files.
+If you want to set it manually do:
+
+    cat > ~/.config/workonomic/.apitoken
+    <<your-api-token->>
+    
 
 How to use
 ----------
