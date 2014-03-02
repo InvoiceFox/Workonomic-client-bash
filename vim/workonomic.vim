@@ -1,3 +1,6 @@
+" TODO -- make it cache the api token
+" TODO -- check for curl and report if not istalled
+" TODO -- test more
 
 function! s:workonomic_msg(msg)
     let s:cmd = 'echo "hi"'
