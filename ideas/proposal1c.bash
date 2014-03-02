@@ -10,17 +10,17 @@
 #   * P> is command written as it would be seen in python
 
 
-# commands with 1 level
-# ---------------------
+# simple commands
+# ---------------
 #
 # data retrieval
 
-$ wrk list project
+$ wrk list projects
 $ wrk get project 10
 $ wrk get project proj1
 $ wrk get project <id|shortname>
 
-$ wrk list work 
+$ wrk list work
 $ wrk get work 100
 $ wrk get work <id>
 
@@ -59,8 +59,8 @@ project|work|client|note - defines resource you are working with
 
 
 
-# commands on 2. level
-# --------------------
+# 2. level commands
+# -----------------
 #
 # maybe we shouldn't look at it as 2. level, but basically "with refinements / filters"
 # in examples so far. Basically the method has refinements in Rebol sense.
@@ -141,6 +141,11 @@ R> wrk/list/day 'work 2012-12-26                                           ;'
 B$ wrk list work --filter proj 10 day 2012-12-01
 P> wrk.list('work', filter={proj: 10, day: "2012-12-01"})
 R> wrk/list/filter 'work [ proj 10 day 2012-12-01 ]                        ;'
+
+# Notice
+# ======
+#
+# we would make resources work in singular and plurar forms here
 
 
 # Thanks

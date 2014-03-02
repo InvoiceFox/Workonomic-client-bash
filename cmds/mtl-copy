@@ -1,0 +1,59 @@
+#!/bin/bash
+
+showUsage() {
+    cat <<EOF
+Usage: 1
+copy from ssh://user@host.com:~/mynotes/test
+copy to ssh://user@host.com:~/mynotes/test
+EOF
+}
+
+### this is just quick proof of concept version 
+### later we add a way to store remotes
+
+if [ $# -eq 3 ]; then
+    if [ $2 == "to" ]; then
+	if [[ $3 =~ ":" ]]; then
+	    todir=/tmp/mtl/.mtl
+	else
+	    todir=${3}/.mtl
+	fi
+	echo "copying the mtl ${1} dir to remote ($todir) location.."
+	#copy the wrk index scr files
+	mkdir -p ${todir}/d
+	echo "copying wrk index and src files"
+	cp .mtl/${1}* ${todir}/.
+	#get blobs and copy them
+	for blob in `cat .mtl/${1}.index | cut -f 1 | uniq` 
+	do
+	    echo "copying blob: $blob"
+	    cp .mtl/d/$blob ${todir}/d/.
+	done
+	if [[ $3 =~ ":" ]]; then
+	    dest1=`echo $3 | cut -f 1 -d ":"`
+	    dest2=`echo $3 | cut -f 2 -d ":"`
+	    tar -C /tmp/mtl -cvzf - .mtl | ssh $dest1 "cat - | tar xvzf - -C $dest2"
+	fi
+	echo "DONE"
+    elif [ $2 == "from" ]; then
+	echo "not implemented ..."
+    else
+	showUsage
+    fi
+elif [ $# -eq 2 ]; then
+    if [ $1 == "to" ]; then
+	echo "copying the mtl dir to remote location.."
+#ls 	mkdir -p ${2}
+	scp -r .mtl ${2}/.mtl
+	echo "DONE"
+    elif [ $1 == "from" ]; then
+	echo "copying the mtl dir.."
+	scp -r ${1} .mtl
+	echo "DONE"
+    else
+	showUsage
+    fi
+else
+    showUsage
+fi
+

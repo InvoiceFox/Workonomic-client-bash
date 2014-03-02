@@ -1,0 +1,16 @@
+#!/bin/bash
+. mtl-funcs
+
+showUsage() {
+    cat <<EOF
+Usage: 
+log doc ~ shows log of doc
+EOF
+}
+
+if [ $# -eq 1 ]; then
+    DOC=$(getdoc $1)
+    cat .mtl/${DOC}.index | awk -F'\t' '{ print "" $3 "\t" $4 "\t" $5 }'
+else
+    showUsage
+fi

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -gt 0 ]; then
+    printf "\e[01;32m"
+    curl -k -u `cat ~/.config/workonomic/.apitoken`:x -d "msg=$*" "http://workonomic.cc/APIBOT"
+    echo -e "\e[00m"
+else
+    echo "[wrknm workonomic message] usage: wrkn \"list projs\""
+fi

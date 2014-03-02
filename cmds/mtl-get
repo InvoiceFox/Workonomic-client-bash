@@ -1,0 +1,28 @@
+#!/bin/bash
+. mtl-funcs
+
+showUsage() {
+    cat <<EOF
+Usage: 
+get doc ~ gets working to head
+get doc 1 ~ gets working to 1 version back #todo
+EOF
+}
+
+LINE=0
+
+if [ $# -eq 2 ]; then
+    let "LINE= $2 + 1"
+elif [ $# -eq 1 ]; then
+    let "LINE= 1"    
+else
+    showUsage
+fi
+
+if [ ! "0" -eq "$LINE" ]; then
+# tail -n $LINE ${1}.index | head -n 1 | awk '{ print $1 }'
+    DOC=$(getdoc $1)
+    blob=`mtl-gethead $DOC`
+    echo "$blob" > .mtl/${DOC}.src
+    cat .mtl/d/${blob} > .mtl/$DOC
+fi

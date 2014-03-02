@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ~/Work/Workonomic-utils/
+
+if [ $# -gt 0 ]; then
+    printf "\e[01;32m"
+    python lib/sendwait.py -q -j `head -n1 .xmppacc` -p `tail -n1 .xmppacc` -t `head -n1 .xmppsetup` -m "$*" -w `tail -n1 .xmppsetup`
+    printf "\e[00m"
+else
+    echo "[wrknm workonomic message] usage: wrkn \"list projs\""
+fi

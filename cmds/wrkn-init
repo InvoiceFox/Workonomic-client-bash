@@ -1,0 +1,20 @@
+#!/bin/bash
+
+showUsage() {
+    cat <<EOF
+Usage: 
+init <proj>  ~ creates .wrkn and binds it to project <proj>
+EOF
+}
+
+if [ $# -eq 1 ]; then
+    if [ ! -d ".wrkn" ] ; then
+	mkdir .wrkn/
+	touch .wrkn/created
+	echo "$1" | cat > .wrkn/sname
+    else
+	echo "Already iniaialized as Workonomic directory."
+    fi
+else
+    showUsage
+fi
